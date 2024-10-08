@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Detalle del Turno
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Detalle del Turno
+    if turno
+      ul
+        li ID: #{turno.id}
+        li Paciente: #{turno.pacienteNombre}
+        li Profesional: #{turno.profesionalNombre}
+        li Especialidad: #{turno.especialidadNombre}
+        li Fecha: #{turno.fecha}
+        li Hora: #{turno.hora}
+        li Estado: #{turno.estado}
+      a(href=`/turnos/${turno.id}/editar`) Editar Turno
+    else
+      p Turno no encontrado.
+    a(href='/turnos') Volver a la lista de turnos

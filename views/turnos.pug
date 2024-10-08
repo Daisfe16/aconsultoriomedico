@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1= title
+    if turnos.length > 0
+      table
+        thead
+          tr
+            th ID
+            th Paciente
+            th Profesional
+            th Fecha
+            th Hora
+            th Estado
+            th Acciones
+        tbody
+          each turno in turnos
+            tr
+              td= turno.id
+              td= turno.paciente
+              td= turno.profesional
+              td= turno.fecha
+              td= turno.hora
+              td= turno.estado
+              td
+                a(href=`/turnos/${turno.id}`) Ver Detalle
+                | |
+                form(action=`/turnos/${turno.id}/eliminar`, method='POST', style='display:inline')
+                  button(type='submit') Eliminar
+    else
+      p No hay turnos disponibles.
+    a(href='/turnos/nuevo') Agendar nuevo turno
+    br
+    a(href='/') Volver al inicio
