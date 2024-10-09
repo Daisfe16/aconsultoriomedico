@@ -22,8 +22,11 @@ router.get('/turnos/nuevo', (req, res) => {
     res.render('nuevoTurno'); // Renderizar vista para crear nuevo turno
 });
 router.post('/turnos', turnoController.crearTurno); // Crear un nuevo turno
-router.get('/turnos/:id', turnoController.mostrarTurno); // Mostrar un turno específico
-router.post('/turnos/edit/:id', turnoController.editarTurno); // Editar un turno
+router.get('/turnos/:id', turnoController.mostrarTurno); // Ver el detalle del turno
+router.get('/turnos/:id/editar', turnoController.mostrarFormularioEditarTurno); // Mostrar el formulario de edición
+router.post('/turnos/:id/editar', turnoController.editarTurno); // Procesar la edición
+
+router.post('/turnos/:id/eliminar', turnoController.eliminarTurno); // Eliminar el turno
 
 // Exportar las rutas
 module.exports = router;

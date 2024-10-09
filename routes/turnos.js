@@ -7,7 +7,7 @@ const db = require('../db'); // Asegúrate de tener un archivo de configuración
 router.get('/', (req, res) => {
   db.query('SELECT * FROM turnos', (err, turnos) => {
     if (err) throw err;
-    res.render('turnos/index', { turnos });
+    res.render('turnos', { turnos });
   });
 });
 
@@ -43,7 +43,7 @@ router.get('/:id/editar', (req, res) => {
 
     db.query('SELECT * FROM profesionales', (err, profesionales) => {
       if (err) throw err;
-      res.render('turnos/editar', { turno: turnos[0], profesionales });
+      res.render('editar', { turno: turnos[0], profesionales });
     });
   });
 });
